@@ -1,0 +1,7 @@
+﻿@model IEnumerable<WebDoCuoi.Models.NTK>
+@foreach (var item in Model)
+{
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Index","ProductDesigner", new {id=item.MaNTK})">@item.TenNTK</a>
+    </li>
+}

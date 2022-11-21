@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Moirea Creative";
+}
+
+<section class="home_banner_area mb-40">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content row">
+                <div class="col-lg-12">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+<!-- Start feature Area -->
+<!--================ End Offer Area =================-->
+<!--================ New Product Area =================-->
+<section class="new_product_area section_gap_top section_gap_bottom_custom">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="main_title">
+                    <h2><span>new products</span></h2>
+                    <p>Bring called seed first of third give itself now ment</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="new_product">
+                    <div class="product-img">
+                        <img class="img-fluid" src="~/Content/img/sanpham/do.jpg" alt="" />
+                    </div>
+                    <h5 class="text-uppercase">New wedding dress limited edition 2022</h5>
+                    <h3 class="text-uppercase">Váy cưới đỏ Moirea's Muse</h3>
+                    <h4>70,000,000 VNĐ</h4>
+                    <a href="#" class="main_btn">Add to cart</a>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mt-5 mt-lg-0">
+                <div class="row">
+                    @Html.Action("NewProduct", "Page")
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================ End New Product Area =================-->
+<!--================ Inspired Product Area =================-->
+<section class="inspired_product_area section_gap_bottom_custom">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="main_title">
+                    <h2><span>Mermaid Collection</span></h2>
+                    <p>Like a mermaid, with graceful, beautiful and seductive beauty... are the words to most fully describe the fishtail wedding dress for the bride on the big day of her life.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.Action("MermaidCollection","Page")
+        </div>
+    </div>
+</section>

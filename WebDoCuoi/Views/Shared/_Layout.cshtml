@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" href="~/favicon.ico" type="image/png" />
+    <title>Moirea Creative</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/vendors/linericon/style.css" />
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Content/css/themify-icons.css" />
+    <link rel="stylesheet" href="~/Content/css/flaticon.css" />
+    <link rel="stylesheet" href="~/Content/vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/Content/vendors/lightbox/simpleLightbox.css" />
+    <link rel="stylesheet" href="~/Content/vendors/nice-select/css/nice-select.css" />
+    <link rel="stylesheet" href="~/Content/vendors/animate-css/animate.css" />
+    <link rel="stylesheet" href="~/Content/vendors/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="~/Content/css/icon/css/animation.css" />
+    <link rel="stylesheet" href="~/Content/css/icon/css/fontello-codes.css" />
+    <link rel="stylesheet" href="~/Content/css/icon/css/fontello-embedded.css" />
+    <link rel="stylesheet" href="~/Content/css/icon/css/fontello-ie7-codes.css" />
+    <link rel="stylesheet" href="~/Content/css/icon/css/fontello-ie7.css" />
+    <link rel="stylesheet" href="~/Content/css/icon/css/fontello.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="~/Content/css/style.css" />
+    <link rel="stylesheet" href="~/Content/css/search.css"/>
+    <link rel="stylesheet" href="~/Content/css/responsive.css" />
+</head>
+
+<body>
+    <!--================Header Menu Area =================-->
+    <header class="header_area">
+        <div class="top_menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="float-left">
+                            <p>Phone: +01 0101 0101</p>
+                            <p>email: moireacreative@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="float-right">
+                            <ul class="right_side">
+                                <li>
+                                    <a href="cart.html">
+                                        gift card
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tracking.html">
+                                        track order
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">
+                                        Contact Us
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_menu">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light w-100">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand logo_h" href="index.html">
+                        <img src="~/Content/img/LogoMC.png" alt="" width="50px" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset w-100" id="navbarSupportedContent">
+                        <div class="row w-100 mr-0">
+                            <div class="col-lg-7 pr-0">
+                                <ul class="nav navbar-nav center_nav pull-right">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="@Url.Action("Index", "Home")">Trang chủ</a>
+                                    </li>
+                                    <li class="nav-item submenu dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                           aria-expanded="false">Danh mục sản phẩm</a>
+                                        <ul class="dropdown-menu">
+                                            @Html.Action("Category", "Home")
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                       aria-expanded="false">Account</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("Index", "Account")">Information</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("ShoppingCart", "ShoppingCart")">Shopping Cart</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("Logout","Home")">Log Out</a>
+                                        </li>
+                                    </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-5 pr-0">
+                                <ul class="nav navbar-nav navbar-right right_nav pull-right">
+
+                                    <li class="nav-item">
+                                        <a href="@Url.Action("CartPartial","ShoppingCart")" class="icons">
+                                            <i class="icon-basket"></i>
+                                        </a>
+                                    </li>
+
+
+                                    <li class="nav-item">
+                                        <a href="#" class="icons">
+                                            <i class="icon-heart-empty-1" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="@Url.Action("Login","Home")" class="icons">
+                                            <i class="icon-user" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        @using (Html.BeginForm("Index", "Filter", FormMethod.Get))
+                                        {
+                                            <div class="box">
+                                                <div class="container-2">
+
+                                                    <span class="icon">
+                                                        <i class="icon-search"></i>
+                                                    </span>
+                                                    <input type="search" name="searchString" id="search" placeholder="   Search..." />
+
+                                                </div>
+                                            </div>
+                                        }
+
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!--================Header Menu Area =================-->
+    <!--================Home Banner Area =================-->
+    @RenderBody()
+    <!--================ End Inspired Product Area =================-->
+    <!--================ Start Blog Area =================-->
+    <!--================ End Blog Area =================-->
+    <!--================ start footer Area  =================-->
+    <footer class="footer-area section_gap">
+        <div class="container">
+            @Html.Action("Footer","Home")
+            <div class="footer-bottom row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script> - CÔNG TY TNHH MOIREA CREATIVE VN <i class="icon-heart" aria-hidden="true"></i> 
+                <p>
+                    Giấy CNĐKDN: 0000000 – Ngày cấp: 25/11/2019 - Cơ quan cấp: Phòng Đăng Ký Kinh Doanh – Sở Kế Hoạch và Đầu Tư TP.HCM
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!--================ End footer Area  =================-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Content/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/js/popper.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="js/stellar.js"></script>
+    <script src="~/Content/vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="~/Content/vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="~/Content/vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Content/vendors/isotope/isotope-min.js"></script>
+    <script src="~/Content/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/Content/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/Content/vendors/counter-up/jquery.waypoints.min.js"></script>
+    <script src="~/Content/vendors/counter-up/jquery.counterup.js"></script>
+    <script src="~/Content/js/mail-script.js"></script>
+    <script src="~/Content/js/theme.js"></script>
+    <script src="~/Content/css/search.js"></script>" />
+</body>
+
+</html>

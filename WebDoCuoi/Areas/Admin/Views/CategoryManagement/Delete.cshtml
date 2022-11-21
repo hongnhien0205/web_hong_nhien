@@ -1,0 +1,45 @@
+﻿@model WebDoCuoi.Models.DANHMUCSP
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; " ">XÓA DANH MỤC SẢN PHẨM</h2>
+
+<h3 style="text-align:center">Bạn đã chắn chắc muốn xóa danh mục sản phẩm này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <div>
+            <table class="center-body" style="width: 60%">
+                <tr>
+                    <td width="200px"> Mã danh mục </td>
+                    <td> @Html.DisplayFor(model => model.MaDM) </td>
+                </tr>
+                <tr>
+                    <td> Tên danh mục</td>
+                    <td>@Html.DisplayFor(model => model.TenDM)</td>
+                </tr>
+            </table>
+        </div>
+    </dl>
+    <style>
+        table, th, td {
+            border: 1px solid white;
+        }
+
+        th, td {
+            padding: 5px;
+        }
+    </style>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="text-align: center">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

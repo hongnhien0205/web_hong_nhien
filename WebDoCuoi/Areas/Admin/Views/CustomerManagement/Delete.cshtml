@@ -1,0 +1,72 @@
+﻿@model WebDoCuoi.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; " ">XÓA TÀI KHOẢN KHÁCH HÀNG</h2>
+
+<h3 style="text-align:center">Bạn đã chắn chắc muốn xóa khách hàng này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <table class="center-body" style="width:60%">
+            <tr>
+                <td>Mã khách hàng</td>
+                <td> @Html.DisplayFor(model => model.MaKH)</td>
+            </tr>
+            <tr>
+                <td>Tên khách hàng</td>
+                <td> @Html.DisplayFor(model => model.TenKH)</td>
+            </tr>
+            <tr>
+                <td>Tên đăng nhập</td>
+                <td>@Html.DisplayFor(model => model.TenDN)</td>
+            </tr>
+            <tr>
+                <td>Địa chỉ</td>
+                <td>@Html.DisplayFor(model => model.Diachi)</td>
+            </tr>
+            <tr>
+                <td>Số điện thoại</td>
+                <td> @Html.DisplayFor(model => model.SDT)</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>@Html.DisplayFor(model => model.Email)</td>
+            </tr>
+            <tr>
+                <td>Ngày tạo</td>
+                <td>@Html.DisplayFor(model => model.NgayTao)</td>
+            </tr>
+            <tr>
+                <td>Mật khẩu</td>
+                <td>@Html.DisplayFor(model => model.MatKhau)</td>
+            </tr>
+            <tr>
+                <td>Trạng thái</td>
+                <td>@Html.DisplayFor(model => model.TrangThai)</td>
+            </tr>
+        </table>
+
+    </dl>
+    <style>
+        table, th, td {
+            border: 1px solid white;
+        }
+
+        th, td {
+            padding: 5px;
+        }
+    </style>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="text-align:center">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

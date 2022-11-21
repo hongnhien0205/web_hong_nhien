@@ -1,0 +1,39 @@
+﻿@model WebDoCuoi.Models.DANHMUCSP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2 style="text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; " ">CHI TIẾT DANH MỤC SẢN PHẨM</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <div>
+            <table class="center-body" style="width: 40%">
+                <tr>
+                    <td width="150px">Mã danh mục</td>
+                    <td>@Html.DisplayFor(model => model.MaDM)</td>
+                </tr>
+                <tr>
+                    <td>Tên danh mục</td>
+                    <td>@Html.DisplayFor(model => model.TenDM)</td> 
+                </tr>
+            </table>
+        </div>
+
+</dl>
+</div>
+<style>
+    table, th, td {
+        border: 1px solid white;
+    }
+
+    th, td {
+        padding: 5px;
+    }
+</style>
+<p style="text-align:center">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaDM }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

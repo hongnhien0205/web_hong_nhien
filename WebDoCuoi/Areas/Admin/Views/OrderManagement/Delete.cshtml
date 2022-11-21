@@ -1,0 +1,56 @@
+﻿@model WebDoCuoi.Models.HOADON
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; " ">XÓA HÓA ĐƠN</h2>
+
+<h3 style="text-align:center">Bạn đã chắn chắc muốn xóa hóa đơn này này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <table class="center-body" style="width:60%">
+            <tr>
+                <td>Mã hóa đơn</td>
+                <td> @Html.DisplayFor(model => model.MaHD)</td>
+            </tr>
+            <tr>
+                <td>Mã khách hàng</td>
+                <td> @Html.DisplayFor(model => model.MaKH)</td>
+            </tr>
+            <tr>
+                <td>Tên khách hàng</td>
+                <td>@Html.DisplayFor(model => model.KHACHHANG.TenKH)</td>
+            </tr>
+            <tr>
+                <td>Ngày đặt</td>
+                <td>@Html.DisplayFor(model => model.NgayDat)</td>
+            </tr>
+            <tr>
+                <td>Ngày giao</td>
+                <td> @Html.DisplayFor(model => model.NgayGiao)</td>
+            </tr>
+            <tr>
+                <td>Tổng hóa đơn</td>
+                <td>@Html.DisplayFor(model => model.GiaTri, "{0:#,##0}")</td>
+            </tr>
+            <tr>
+                <td>Trạng thái</td>
+                <td>@Html.DisplayFor(model => model.TrangThai)</td>
+            </tr>
+        </table>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="text-align:center">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

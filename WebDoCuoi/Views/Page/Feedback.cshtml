@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Feedback</h2>
+
+<div class="form-inline">
+    Chọn hình ảnh<input type="text" name="picture" class="form-control" />
+    <input type="file" id="fileUpLoad" accept="image/" name="fileUpLoad" style="display:none;" />
+    <input type="button" id="btnUpLoad" value="..." class="btn btn-success" />
+    <hr />
+</div>
+<img id="pictureUpload" width="300" />
+
+@section upload
+{
+    <script>
+        $(function () {
+            //DK sự kiện click nút btnUpload
+            $('#btnUpload').click(function () {
+                $('#fileUpload').trigger('click');
+            });
+            //Bắt sự kiện change data của fileUpload
+            $('#fileUpload').chance(function () {
+                //kiểm tra trình duyệt
+                if (window.FormData !== undefined)
+                {
+                    //lấy dữ liệu trên fileUpload
+                    var fileUpload = $('#fileUpload').get(0);
+                    var files = fileUpload.files;
+                    //tạo đối tượng formdata
+                    var formData = new formData();
+                    //đưa dữ liệu vào form
+                    formData.append('file', file[0]);
+                    $.ajax(
+                        {
+                            type: 'POST',
+                            URL: '/Feedback/ProcessUpload',
+                            contentType: false,//khong co header
+                            processData: false,//khong xu lu du lieu
+                            data: fromData,
+                            success: function (urlImage) {
+                                $('#pictureUpload').attr('src', urlImage);
+                                $('#picture')
+                            },
+                            Error: function (err) {
+                                alert('Có lỗi khi upLoad' + err, statusText);
+                            }
+
+
+                        });
+                }
+            });
+        });
+
+    </script>
+
+}
+
+
+

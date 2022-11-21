@@ -1,0 +1,51 @@
+﻿@using WebDoCuoi.Models;
+@using PagedList.Mvc;
+@model  PagedList.PagedList<WebDoCuoi.Models.SANPHAM>
+@{
+    ViewBag.Title = "Moirea Creative";
+    Layout = null;
+}
+
+
+@foreach (var sanpham in Model)
+{
+    <div class="col-lg-4 col-md-6">
+        <div class="single-product">
+            <div class="product-img">
+                <img class="img-fluid" src="~/Content/img/sanpham/@sanpham.AnhSP" alt="@sanpham.TenSP" />
+                <div class="p_icon">
+                    <a href="@Url.Action("ProductDetails", "ProductCategory", new { id = sanpham.MaSP })">
+                        <i class="icon-eye-1"></i>
+                    </a>
+                    <a href="@Url.Action("AddCart","ShoppingCart")">
+                        <i class="icon-heart-empty-1"></i>
+                    </a>
+                    <a href="#">
+                        <i class="icon-basket"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="product-btm">
+                <a href="#" class="d-block">
+                    <h4>@sanpham.TenSP</h4>
+                </a>
+                <div class="mt-3">
+                    <span class="mr-4">@Html.FormatValue(@sanpham.Gia, "{0:0,#}") VNĐ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<div style="text-align:center">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+    <style>
+        .MenuTrang {
+            display: inline;
+            text-align: center;
+        }
+    </style>
+</div>

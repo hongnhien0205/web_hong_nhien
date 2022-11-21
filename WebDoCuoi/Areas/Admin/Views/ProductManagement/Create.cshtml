@@ -1,0 +1,64 @@
+﻿@model WebDoCuoi.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; " ">THÊM SẢN PHẨM MỚI</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <table class="center-body" style="width: 60%">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <tr>
+                <td> Mã sản phẩm</td>
+                <td><input type="text" size="70" name="sMaSP" value="@ViewBag.MaSP" required /></td>
+            </tr>
+            <tr>
+                <td>Mã danh mục</td>
+                <td> @Html.DropDownList("MaDM")</td>
+            </tr>
+            <tr>
+                <td> Tên sản phẩm</td>
+                <td> <input type="text" size="70" name="sTenDM" value="@ViewBag.TenDM" required /></td>
+            </tr>
+            <tr>
+                <td>Ảnh sản phẩm</td>
+                <td><input type="text" size="70" name="sAnhSP" value="@ViewBag.AnhSP" required /></td>
+            </tr>
+            <tr>
+                <td>Nhà thiết kế </td>
+                <td>  <input type="text" size="70" name="sNTK" value="@ViewBag.NTK.TenNTK" required /></td>
+            </tr>
+            <tr>
+                <td>Màu sắc</td>
+                <td><input type="text" size="70" name="sMauSac" value="@ViewBag.MauSac" required /></td>
+            </tr>
+            <tr>
+                <td>Chất liệu</td>
+                <td><input type="text" size="70" name="sChatLieu" value="@ViewBag.ChatLieu" required /></td>
+            </tr>
+            <tr>
+                <td>Mô tả</td>
+                <td><input type="text" size="70" name="sKieuTay" value="@ViewBag.KieuTay" required /></td>
+            </tr>
+            <tr>
+                <td>Giá</td>
+                <td><input type="text" size="70" name="sGia" value="@ViewBag.Gia" required /></td>
+            </tr>
+            <tr>
+                <td>Số lượng tồn</td>
+                <td><input type="text" size="70" name="sSLton" value="@ViewBag.SLton" required /></td>
+            </tr>
+        </table>
+    </div>
+}
+
+<div style="text-align:center">
+    <input type="submit" value="Create" class="btn btn-default" />
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,95 @@
+﻿@model WebDoCuoi.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; " ">ĐIỀU CHỈNH CHI TIẾT SẢN PHẨM</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    <table class="center-body" style="width: 60%">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+  
+        <tr>
+            <td width="300px">Mã sản phẩm</td>
+            <td> <input type="text" size="110" name="sMaSach" value="@Model.MaSP" readonly /></td>
+        </tr>
+        <tr>
+            <td>Mã danh mục</td>
+            <td>
+                @Html.DropDownList("MaDM")
+            </td>
+        </tr>
+        <tr>
+            <td>Tên sản phẩm</td>
+            <td>
+                <input type="text" size="110" name="sTenSP" value="@Model.TenSP" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Ảnh sản phẩm</td>
+            <td>
+                <input type="file" name="fFileUpload" />
+                <hr />
+                <img src="~/Content/img/sanpham/@Model.AnhSP" width="120"> (Ảnh hiện tại)
+            </td>
+        </tr>
+        <tr>
+            <td>Nhà thiết kế</td>
+            <td>
+                <input type="text" size="110" name="sNTK" value="@Model.NTK.TenNTK" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Màu sắc</td>
+            <td>
+                <input type="text" size="110" name="sMauSac" value="@Model.MauSac" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Chất liệu</td>
+            <td>
+                <input type="text" size="110" name="sChatLieu" value="@Model.ChatLieu" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Mô tả</td>
+            <td>
+                <textarea name="sMota"><p>@Model.Mota.Replace("\n","</p><p>")</p></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Giá</td>
+            <td>
+                <input type="text" size="110" name="mGia" value="@Model.Gia" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Số lượng tồn</td>
+            <td>
+                <input type="number" min="1" size="110" name="iSLton" value="@Html.FormatValue(@Model.SLton, "{0:#,##0}")" required />
+            </td>
+        </tr>
+            
+           </table>
+</div>
+}
+<style>
+    table, th, td {
+        border: 1px solid white;
+    }
+
+    th, td {
+        padding: 5px;
+    }
+</style>
+<div style="text-align:center">
+    <input type="submit" value="Save" class="btn btn-default" />
+    @Html.ActionLink("Back to List", "Index")
+</div>

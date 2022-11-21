@@ -1,0 +1,84 @@
+﻿@using WebDoCuoi.Models;
+@using PagedList.Mvc;
+@model  PagedList.PagedList<WebDoCuoi.Models.SANPHAM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@helper Truncate(string s, int length)
+{
+    if (s.Length < length)
+    {
+        @s
+    }
+    else
+    {
+        @s.Substring(0, length)<text>...</text>
+    }
+}
+<h2 style="text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; " "> QUẢN LÝ SẢN PHẨM</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th style="text-align:center;width:150px">Tên sản phẩm </th>
+        <th style="text-align:center;width:100px">Hình ảnh </th>
+        <th style="text-align:center;width:150px">NTK </th>
+        <th style="text-align:center;width:90px">Màu sắc </th>
+        <th style="text-align:center;width:250px">Mô tả</th>
+        <th style="text-align:center;width:150px">Giá
+        </th>
+        <th style="text-align:center;width:100px">Số lượng </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Truncate(item.TenSP, 50)
+            </td>
+            <td>
+                <img src="~/Content/img/sanpham/@item.AnhSP" style="width:50px;" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NTK.TenNTK)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MauSac)
+            </td>
+            <td>
+                @Html.Raw(Truncate(item.Mota, 70).ToString())
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia, "{0:0,#}") VNĐ
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SLton)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaSP }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaSP }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaSP })
+            </td>
+        </tr>
+    }
+
+</table>
+<div>
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+    <style>
+        .MenuTrang {
+            display: inline;
+            text-align: center;
+        }
+    </style>
+</div>

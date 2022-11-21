@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebDoCuoi.Models.HOADON>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; " "><Q>QUẢN LÝ ĐƠN HÀNG</Q></h2>
+
+<table class="table">
+    <tr>
+        <th style="text-align:center;width:200px">Mã hóa đơn</th>
+        <th style="text-align:center;width:200px">Mã khách hàng</th>
+        <th style="text-align:center;width:200px">Tên khách hàng</th>
+        <th style="text-align:center;width:200px">Ngày đặt</th>
+        <th style="text-align:center;width:200px">Trị giá</th>
+        <th style="text-align:center;width:200px">Trạng thái</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaHD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KHACHHANG.TenKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayDat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaTri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.MaHD }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaHD })
+            </td>
+        </tr>
+    }
+
+</table>

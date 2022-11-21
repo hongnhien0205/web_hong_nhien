@@ -1,0 +1,78 @@
+﻿@model WebDoCuoi.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; " ">XÓA SẢN PHẨM</h2>
+
+<h3 style="text-align:center">Bạn đã chắn chắc muốn xóa sản phẩm này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <div>
+            <table class="center-body" style="width: 60%">
+                <tr>
+                    <td width="200px"> Mã sản phẩm </td>
+                    <td> @Html.DisplayFor(model => model.MaSP) </td>
+                </tr>
+                <tr>
+                    <td>Mã danh mục</td>
+                    <td>@Html.DisplayFor(model => model.DANHMUCSP.MaDM)</td>
+                </tr>
+                <tr>
+                    <td> Tên sản phẩm</td>
+                    <td>@Html.DisplayFor(model => model.TenSP)</td>
+                </tr>
+                <tr>
+                    <td>Ảnh sản phẩm </td>
+                    <td><img src="~/Content/img/sanpham/@Model.AnhSP" alt=" @Model.TenSP"></td>
+                </tr>
+                <tr>
+                    <td>Nhà thiết kế </td>
+                    <td>@Html.DisplayFor(model => model.NTK.TenNTK)</td>
+                </tr>
+                <tr>
+                    <td>Màu sắc</td>
+                    <td>@Html.DisplayFor(model => model.MauSac)</td>
+                </tr>
+                <tr>
+                    <td> Chất liệu</td>
+                    <td> @Html.DisplayFor(model => model.ChatLieu)</td>
+                </tr>
+                <tr>
+                    <td>Mô tả</td>
+                    <td>@Html.DisplayFor(model => model.Mota)</td>
+                </tr>
+                <tr>
+                    <td>Giá</td>
+                    <td>@Html.DisplayFor(model => model.Gia, "{0:0,#}") VNĐ</td>
+                </tr>
+                <tr>
+                    <td>Số lượng tồn</td>
+                    <td>@Html.DisplayFor(model => model.SLton)</td>
+                </tr>
+            </table>
+        </div>
+
+    </dl>
+    <style>
+        table, th, td {
+            border: 1px solid white;
+        }
+
+        th, td {
+            padding: 5px;
+        }
+    </style>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="text-align:center">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

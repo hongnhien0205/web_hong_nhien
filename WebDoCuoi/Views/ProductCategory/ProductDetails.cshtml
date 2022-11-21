@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 50px" ">CHI TIẾT SẢN PHẨM</h2>
+
+@foreach (var hinh in Model)
+{
+    <div class="product_image_area">
+        <div class="container">
+            <div class="row s_product_inner">
+                <div class="col-lg-6">
+                    <div class="s_product_img">
+                        <div id="carouselExampleIndicators"
+                             class="carousel slide"
+                             data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators"
+                                    data-slide-to="0"
+                                    class="active">
+                                    <img src="~/Content/img/sanpham/@hinh.Anh1"
+                                         alt="" width="50px" />
+                                </li>
+                                <li data-target="#carouselExampleIndicators"
+                                    data-slide-to="1">
+                                    <img src="~/Content/img/sanpham/@hinh.Anh2"
+                                         alt="" width="50px" />
+                                </li>
+                                <li data-target="#carouselExampleIndicators"
+                                    data-slide-to="2">
+                                    <img src="~/Content/img/sanpham/@hinh.Anh3"
+                                         alt="" width="50px" />
+                                </li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100"
+                                         src="~/Content/img/sanpham/@hinh.Anh1 "
+                                         alt="First slide" />
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100"
+                                         src="~/Content//img/sanpham/@hinh.Anh2"
+                                         alt="Second slide" />
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100"
+                                         src="~/Content/img/sanpham/@hinh.Anh3"
+                                         alt="Third slide" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="s_product_text">
+                        <h3>@hinh.SANPHAM.TenSP</h3>
+                        <h2>@Html.FormatValue(@hinh.SANPHAM.Gia, "{0:0,#}") VNĐ</h2>
+
+                        <ul class="list">
+                            <li>
+                                <span>Category </span> :
+                                <a href="@Url.Action("Index", "ProductCategory", new {id = hinh.SANPHAM.MaDM})" style="color: #71cd14">@hinh.SANPHAM.MaDM</a>
+                            </li>
+                            <li>
+                                <span>Availibility </span> : @hinh.SANPHAM.SLton product
+                            </li>
+                        </ul>
+                        <p>
+                            @hinh.SANPHAM.Mota
+                        </p>
+                        <div class="product_count">
+                            <label for="qty">Quantity:</label>
+                            <input type="text"
+                                   name="qty"
+                                   id="sst"
+                                   maxlength="12"
+                                   value="1"
+                                   title="Quantity:"
+                                   class="input-text qty" />
+                            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+                                    class="increase items-count"
+                                    type="button">
+                                <i class="lnr lnr-chevron-up"></i>
+                            </button>
+                            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+                                    class="reduced items-count"
+                                    type="button">
+                                <i class="lnr lnr-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="card_area">
+                            <a href="@Url.Action("AddCart","ShoppingCart")" class="main_btn">Add to cart</a>
+                            <a class="icon_btn" href="#">
+                                <i class="lnr lnr lnr-diamond"></i>
+                            </a>
+                            <a class="icon_btn" href="#">
+                                <i class="lnr lnr lnr-heart"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebDoCuoi.Models.DANHMUCSP>
+
+@{
+    ViewBag.Title = "QL Danh Mục";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; " ">QUẢN LÝ DANH MỤC SẢN PHẨM</h2>
+<p class="sub-header">
+    Bạn có thể tùy chỉnh danh mục sản phẩm
+</p>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create", "CategoryManagement")
+</p>
+<table class="table">
+    <tr>
+        <th style="text-align:center;width:300px">
+            Tên danh mục
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDM)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaDM }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaDM })
+            </td>
+        </tr>
+    }
+
+</table>

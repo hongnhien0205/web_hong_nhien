@@ -1,0 +1,7 @@
+﻿@model IEnumerable<WebDoCuoi.Models.DANHMUCSP>
+@foreach (var item in Model)
+{
+<li class="nav-item">
+    <a class="nav-link" href="@Url.Action("Index","ProductCategory", new {id=item.MaDM})">@item.TenDM</a>
+</li>
+}

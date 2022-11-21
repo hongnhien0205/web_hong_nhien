@@ -1,0 +1,51 @@
+﻿@model WebDoCuoi.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="product_image_area">
+    <h2 style="text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; " ">PERSONAL INFORMATION</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <table class="center-body" style="width: 50%">
+                <tr>
+                    <td width="150px">Họ tên</td>
+                    <td style="background-color:lightgray">@Html.DisplayFor(model => model.TenKH)</td>
+                </tr>
+                <tr>
+                    <td>Tên đăng nhập</td>
+                    <td style="background-color:lightgray">@Html.DisplayFor(model => model.TenDN)</td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ</td>
+                    <td style="background-color:lightgray">@Html.DisplayFor(model => model.Diachi)</td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại</td>
+                    <td style="background-color:lightgray">@Html.DisplayFor(model => model.SDT)</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td style="background-color:lightgray">@Html.DisplayFor(model => model.Email)</td>
+                </tr>
+            </table>
+        </dl>
+    </div>
+    <p style="text-align:center">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MaKH })
+    </p>
+
+</div>
+    <style>
+        table, th, td {
+            border: 1px solid white;
+        }
+
+        th, td {
+            padding: 5px;
+        }
+    </style>
+    
